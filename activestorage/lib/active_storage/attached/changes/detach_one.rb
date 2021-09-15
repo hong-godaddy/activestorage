@@ -1,21 +1,18 @@
 # frozen_string_literal: true
 
 module ActiveStorage
-  class Attached::Changes::PurgeOne # :nodoc:
+  class Attached::Changes::DetachOne # :nodoc:
     attr_reader :name, :record, :attachment
 
     def initialize(name, record, attachment)
       @name, @record, @attachment = name, record, attachment
     end
 
-    def purge
-      attachment&.purge
-      reset
-    end
-
-    def purge_later
-      attachment&.purge_later
-      reset
+    def detach
+      if attachment.present?
+        attachment.delete
+        reset
+      end
     end
 
     private

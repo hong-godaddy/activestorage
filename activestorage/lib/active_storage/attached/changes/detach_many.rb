@@ -1,27 +1,18 @@
 # frozen_string_literal: true
 
 module ActiveStorage
-  class Attached::Changes::PurgeMany # :nodoc:
+  class Attached::Changes::DetachMany # :nodoc:
     attr_reader :name, :record, :attachments
 
     def initialize(name, record, attachments)
       @name, @record, @attachments = name, record, attachments
     end
 
-    def purge
-      attachments.each(&:purge)
-      reset
-    end
-
-    def purge_later
-      attachments.each(&:purge_later)
-      reset
-    end
-
-    private
-      def reset
+    def detach
+      if attachments.any?
+        attachments.delete_all if attachments.respond_to?(:delete_all)
         record.attachment_changes.delete(name)
-        record.public_send("#{name}_attachments").reset
       end
+    end
   end
 end
