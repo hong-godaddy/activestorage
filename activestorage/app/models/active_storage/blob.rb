@@ -68,6 +68,8 @@ class ActiveStorage::Blob < ActiveStorage::Record
     end
   end
 
+  alias_method :uuid, :id
+
   class << self
     # You can use the signed ID of a blob to refer to it on the client side without fear of tampering.
     # This is particularly helpful for direct uploads where the client-side needs to refer to the blob

@@ -4,7 +4,7 @@
 class ActiveStorage::AnalyzeJob < ActiveStorage::BaseJob
   queue_as { ActiveStorage.queues[:analysis] }
 
-  discard_on ActiveRecord::RecordNotFound
+  discard_on ActiveRecord::RecordNotFound, MiniMagick::Error
   retry_on ActiveStorage::IntegrityError, attempts: 10, wait: :exponentially_longer
 
   def perform(blob)
