@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-version = File.read(File.expand_path("../RAILS_VERSION", __dir__)).strip
+version = '6.0.5'
 
 Gem::Specification.new do |s|
   s.platform    = Gem::Platform::RUBY
@@ -21,11 +21,11 @@ Gem::Specification.new do |s|
   s.require_path = "lib"
 
   s.metadata = {
-    "bug_tracker_uri"   => "https://github.com/rails/rails/issues",
-    "changelog_uri"     => "https://github.com/rails/rails/blob/v#{version}/activestorage/CHANGELOG.md",
+    "bug_tracker_uri"   => "https://github.com/jyoun-godaddy/activestorage/issues",
+    "changelog_uri"     => "https://github.com/jyoun-godaddy/activestorage/blob/v#{version}/activestorage/CHANGELOG.md",
     "documentation_uri" => "https://api.rubyonrails.org/v#{version}/",
     "mailing_list_uri"  => "https://discuss.rubyonrails.org/c/rubyonrails-talk",
-    "source_code_uri"   => "https://github.com/rails/rails/tree/v#{version}/activestorage",
+    "source_code_uri"   => "https://github.com/jyoun-godaddy/activestorage/tree/v#{version}/activestorage",
     "rubygems_mfa_required" => "true",
   }
 

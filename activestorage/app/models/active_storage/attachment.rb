@@ -8,7 +8,7 @@ require "active_support/core_ext/module/delegation"
 class ActiveStorage::Attachment < ActiveRecord::Base
   self.table_name = "active_storage_attachments"
 
-  belongs_to :record, polymorphic: true, touch: true
+  belongs_to :record, polymorphic: true, touch: true, primary_key: :uuid
   belongs_to :blob, class_name: "ActiveStorage::Blob"
 
   delegate_missing_to :blob
