@@ -36,6 +36,10 @@ class ActiveStorage::Blob < ActiveRecord::Base
 
   scope :unattached, -> { left_joins(:attachments).where(ActiveStorage::Attachment.table_name => { blob_id: nil }) }
 
+  after_initialize do
+    self.service_name ||= self.class.service&.name
+  end
+
   before_destroy(prepend: true) do
     raise ActiveRecord::InvalidForeignKey if attachments.exists?
   end
