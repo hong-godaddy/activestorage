@@ -108,6 +108,19 @@ index 85ddbb8..82c7036 100644
            def purge
              each(&:purge)
              reset
+             --- a/activestorage/lib/active_storage/downloader.rb
+
+diff --git a/activestorage/lib/active_storage/downloader.rb b/activestorage/lib/active_storage/downloader.rb
++++ b/activestorage/lib/active_storage/downloader.rb
+@@ -11,7 +11,7 @@ module ActiveStorage
+     def open(key, checksum:, name: "ActiveStorage-", tmpdir: nil)
+       open_tempfile(name, tmpdir) do |file|
+         download key, file
+-        # verify_integrity_of file, checksum: checksum
++        verify_integrity_of file, checksum: checksum unless !checksum
+         yield file
+       end
+     end
 ```
 
 ---
