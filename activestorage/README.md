@@ -117,7 +117,7 @@ diff --git a/activestorage/lib/active_storage/downloader.rb b/activestorage/lib/
        open_tempfile(name, tmpdir) do |file|
          download key, file
 -        # verify_integrity_of file, checksum: checksum
-+        verify_integrity_of file, checksum: checksum unless !checksum
++        verify_integrity_of file, checksum: checksum unless checksum.empty?
          yield file
        end
      end
