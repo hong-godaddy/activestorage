@@ -36,10 +36,16 @@ module ActiveStorage
             end
 
             if name.to_s == "combine_options"
-              raise ArgumentError, <<~ERROR.squish
-                Active Storage's ImageProcessing transformer doesn't support :combine_options,
-                as it always generates a single ImageMagick command.
-              ERROR
+              # XREF - Reamaze custom - combine_options backwards compatibility - splat out combine_options to list
+              # raise ArgumentError, <<~ERROR.squish
+              #   Active Storage's ImageProcessing transformer doesn't support :combine_options,
+              #   as it always generates a single ImageMagick command.
+              # ERROR
+              argument.each do |k,v|
+                list << [ k, v ]
+              end
+
+              next
             end
 
             if argument.present?
