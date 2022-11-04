@@ -121,6 +121,20 @@ diff --git a/activestorage/lib/active_storage/downloader.rb b/activestorage/lib/
          yield file
        end
      end
+
+diff --git a/activestorage/app/models/active_storage/variant_record.rb b/activestorage/app/models/active_storage/variant_record.rb
+index 4f0d5a4309..fd40c774e0 100644
+--- a/activestorage/app/models/active_storage/variant_record.rb
++++ b/activestorage/app/models/active_storage/variant_record.rb
+@@ -4,7 +4,7 @@ class ActiveStorage::VariantRecord < ActiveStorage::Record
+   self.table_name = "active_storage_variant_records"
+
+   alias_method :uuid, :id
++  belongs_to :blob, primary_key: :uuid
+
+-  belongs_to :blob
+   has_one_attached :image
+ end
 ```
 
 ---
