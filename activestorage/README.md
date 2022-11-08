@@ -17,7 +17,7 @@ Because our models (namely `Login` and `Attachment`) have bigint `id`s and uuid 
 
 Because our models (namely `Login` and `Attachment`) have bigint `id`s and uuid `uuid`s, we needed a way to specify the `uuid` as the primary key for the association. This can be removed once/if we rename the `uuid` columns of `Login` and `Attachment` to be `id`.
 
-## Diff Between Upstream 6-0-stable
+## Diff Between Upstream 6-1-stable
 
 (diff to README.md omitted because of recursion)
 
@@ -129,7 +129,7 @@ index 4f0d5a4309..fd40c774e0 100644
 @@ -4,7 +4,7 @@ class ActiveStorage::VariantRecord < ActiveStorage::Record
    self.table_name = "active_storage_variant_records"
 
-   alias_method :uuid, :id
++  alias_method :uuid, :id
 +  belongs_to :blob, primary_key: :uuid
 
 -  belongs_to :blob
