@@ -3,7 +3,8 @@
 class ActiveStorage::VariantRecord < ActiveStorage::Record
   self.table_name = "active_storage_variant_records"
 
-  belongs_to :blob
+  alias_method :uuid, :id
+  belongs_to :blob, primary_key: :uuid
   has_one_attached :image
 end
 

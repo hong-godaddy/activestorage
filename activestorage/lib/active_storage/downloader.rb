@@ -11,7 +11,7 @@ module ActiveStorage
     def open(key, checksum: nil, verify: true, name: "ActiveStorage-", tmpdir: nil)
       open_tempfile(name, tmpdir) do |file|
         download key, file
-        verify_integrity_of(file, checksum: checksum) if verify
+        verify_integrity_of(file, checksum: checksum) if verify && !checksum.empty?
         yield file
       end
     end
