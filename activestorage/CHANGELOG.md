@@ -1,3 +1,49 @@
+## Rails 6.1.7.6 (August 22, 2023) ##
+
+*   No changes.
+
+
+## Rails 6.1.7.5 (August 22, 2023) ##
+
+*   No changes.
+
+
+## Rails 6.1.7.4 (June 26, 2023) ##
+
+*   No changes.
+
+
+## Rails 6.1.7.3 (March 13, 2023) ##
+
+*   No changes.
+
+
+## Rails 6.1.7.2 (January 24, 2023) ##
+
+*   No changes.
+
+
+## Rails 6.1.7.1 (January 17, 2023) ##
+
+*   No changes.
+
+
+## Rails 6.1.7 (September 09, 2022) ##
+
+*   Respect Active Record's primary_key_type in Active Storage migrations. Backported from 7.0.
+
+    *fatkodima*
+
+## Rails 6.1.6.1 (July 12, 2022) ##
+
+*   No changes.
+
+
+## Rails 6.1.6 (May 09, 2022) ##
+
+*   No changes.
+
+
 ## Rails 6.1.6 (May 09, 2022) ##
 
 *   No changes.
